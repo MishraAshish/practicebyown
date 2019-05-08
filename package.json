@@ -1,0 +1,21 @@
+{
+  "name": "nodeapi4",
+  "version": "1.0.0",
+  "description": "node api for learning",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "not now",
+    "prod": "node test.js && node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "not now"
+  },
+  "author": "synergisticit",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "1.19.0"
+  },
+  "devDependencies": {}
+}
