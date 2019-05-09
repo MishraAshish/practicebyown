@@ -4,7 +4,7 @@
   "description": "node api for learning",
   "main": "server.js",
   "scripts": {
-    "start": "node test/server.js",
+    "start": "node server.js",
     "test": "not now",
     "prod": "node test.js && node server.js"
   },
