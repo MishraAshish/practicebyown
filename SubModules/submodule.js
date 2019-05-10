@@ -3,7 +3,7 @@ let express = require('express');
 
 let mainApp = express(),
 admin = express(),
-subModule = express()
+subModule = express(),
 port = 9000;
 
 //users

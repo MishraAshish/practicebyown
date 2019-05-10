@@ -1,30 +1,21 @@
 //create node api 
-let express = require('express');
+let express = require('express'),
+app = express(),
+router = require('./router'),
+port = process.env.PORT || 9090,
+root = __dirname+"/public";
+global.__base = __dirname + '/';
 
-//get, put, post, delete
-let app = express(),
-port = 9000;
+app.use(express.static(root));//whatever static files needs to be sent to client will be served from root
 
-//users
-app.get("/users",function(request, response) {
-   response.send("{'Name':'Jerry'},{'Name':'Andrew'},{'Name':'Bikram'},{'Name':'Reetu'}");
-});
+//express.json({limit:'200mb', extended:false});
 
-//gethelloworld
-app.get("/hello",function(request, response) {
-   response.send("<h2>Hello Synergistician's<h2/>");
-});
+router.next("This is next format data");
 
-app.get("*",function(request, response) {
-   response.send("<h2>Site Under Construction<h2/>");
-});
+app.use('/', router);
 
-app.listen(port||8080);
+console.log("we are listening at", port);
 
-// let server = app.listen(port, function () {
-//    let host = server.address().address;
-//    let port = server.address().port 
-//    console.log("Example app listening at http://%s:%s", host, port);
-// });
+app.listen(port);
 
-console.log("Example app listening at http://%s:%s", port);
+console.log("we are printing global testname", global.testname);
