@@ -1,10 +1,12 @@
 //create node api 
 let express = require('express'),
-app = express(),
+app = express(), //this is the express application
 router = require('./router'),
 port = process.env.PORT || 9090,
 root = __dirname+"/public";
 global.__base = __dirname + '/';
+
+app.locals.user = {Name:"FirstNAme", Age:"1000Yrs"};
 
 app.use(express.static(root));//whatever static files needs to be sent to client will be served from root
 
