@@ -8,7 +8,7 @@
     <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<!-- jQuery library -->
-	<script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<!-- Latest compiled JavaScript -->
     <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="preconnect" src="public/main.css"></link>
@@ -16,5 +16,133 @@
 <body>
     <h1>This is Index HTML Response</h1>
 
+    <h4>
+        Please Type Name and Password
+    </h4>    
+    <div class="form row col-md-12">
+        <div>
+            <input class="form-control" type="text" value="User Name" id="user"/>
+        </div>
+        <div>
+            <input class="form-control" type="text" value="Password" id="password"/>
+        </div>
+        <div>
+            <input class="button" type="button" id="submit" value="Submit">
+        </div>    
+    </div>
+    <hr>
+    <h2>
+        Update Name and Password
+    </h2> 
+    <div class="form row col-md-12">
+        <div>
+            <input class="form-control" type="text" value="User Name" id="updateuser"/>
+        </div>
+        <div>
+            <input class="form-control" type="text" value="Password" id="updatepassword"/>
+        </div>
+        <div>
+            <input class="button" type="button" id="update" value="Update">
+        </div>    
+    </div>
+
+    <h2>
+        Delete Last User
+    </h2> 
+    <div class="form row col-md-12">        
+        <div>
+            <input class="button" type="button" id="delete" value="Delete">
+        </div>    
+    </div>
 </body>
+<script>
+    $(document).ready(function(){
+        var userName,password, updateuserid;
+        $("#submit").click(function(){
+          userName=$("#user").val();
+          password=$("#password").val();          
+          $.ajax({
+              url:"http://localhost:9090/api/createstudent",//path to api
+              type:"post",   
+              contentType:"application/json",
+              data :JSON.stringify({   
+                    Name: userName,
+                    Pass: password,
+                    School: "MIT"
+                }),         
+                success:function(data){
+                    //if(data =='done'){
+                        alert("login success : ", data);
+                    //}
+                },
+                error:function(data){
+                    alert("login error : ", data);
+                }        
+            });      
+        });
+    
+        $("#update").click(function(){
+          userName=$("#updateuser").val();;
+          password=$("#updatepassword").val();          
+          $.ajax({
+              url:"http://localhost:9090/api/updatestudent",//path to api
+              type:"put",   
+              contentType:"application/json",
+              data :JSON.stringify({   
+                    Name: userName,
+                    Pass: password,
+                    School: "OXFORD",
+                    ID:updateuserid
+                }),         
+                success:function(data){
+                    //if(data =='done'){
+                        alert("login success : ", data);
+                    //}
+                },
+                error:function(data){
+                    alert("login error : ", data);
+                }        
+            });      
+        });
+
+
+        $("#delete").click(function(){                   
+          $.ajax({
+              url:"http://localhost:9090/api/deletestudent",//path to api
+              type:"delete",   
+              contentType:"application/json",
+              data :JSON.stringify({  
+                    ID:updateuserid
+                }),         
+                success:function(data){
+                    //if(data =='done'){
+                        alert("delted success : ", data);
+                    //}
+                },
+                error:function(data){
+                    alert("login error : ", data);
+                }        
+            });      
+        });
+
+        ($.ajax({
+              url:"http://localhost:9090/api/getstudents",//path to api
+              type:"get",   
+              contentType:"application/json",                      
+                success:function(data){
+                    var userToUpdate = data[data.length-1];
+                    $("#updateuser").val(userToUpdate.Name);
+                    $("#updatepassword").val(userToUpdate.Password);
+                    updateuserid = userToUpdate._id;
+                    console.log("UserID", updateuserid)                    
+                },
+                error:function(data){
+                    alert("login error : "+ data);
+                }        
+        }))();
+
+
+
+    });
+</script>
 </html>
