@@ -8,7 +8,7 @@ let NewSchema = new Schema(
     { 
         Name: {type: String, required: true}, 
         Password: String,
-        SchoolName: {type: String, required: true} //MandatoryField
+        SchoolName: Object//{type: String, required: true} //MandatoryField        
     }); //JSON - BSON (Binary JSON)
 
 let StudentSchema = mongoose.model('student', NewSchema);

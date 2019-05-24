@@ -13,7 +13,7 @@ router.post('/api/createstudent', (req, res) =>{
     let studentObjForMongo = new studentModel({
         Name: req.body.Name,
         Password: req.body.Pass,
-        SchoolName: req.body.School
+        SchoolName: {"version":"thought"}
     });
     studentObjForMongo.save((err, data, next)=>{        
         if (err) {
@@ -156,9 +156,9 @@ router.get('*', (req, res) => {
     //console.log(typeof req.app != "undefined" ? req.app.locals.user : "App is not present");    
     //console.log("Response Object ", res);
     //console.log("Request Object ", req);
-    //res.send("Hello World");
+    res.send("Hello World");//json data
     
-    res.sendfile('./index.html');    
+    //res.sendfile('./index.html');    
 });
 
 router.next = function(data) {

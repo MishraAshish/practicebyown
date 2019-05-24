@@ -1,16 +1,34 @@
-console.log("File Name", __filename);
+for(var index = 0; index < 5; index++) {    
+    setTimeout(() => {
+        console.log("After Seconds "+ (index+1)); //3- "1 second, 3rd second, 5 second"
+    }, 1000);
+}
 
-console.log("Directory Name", __dirname);
 
-global.persons = [
-    {id : 1, name : "John", savedby : "CaptainAmerica"},
-    {id : 2, name : "Alice", savedby : "IronMan"},
-    {id : 3, name : "Roger", savedby : "CaptainAmerica"},
-    {id : 4, name : "Adam", savedby : "IronMan"},
-    {id : 5, name : "Alex", savedby : "SpiderMan"}
-];
 
-console.log(global.persons);
+
+
+
+
+
+
+
+
+
+
+// console.log("File Name", __filename);
+
+// console.log("Directory Name", __dirname);
+
+// global.persons = [
+//     {id : 1, name : "John", savedby : "CaptainAmerica"},
+//     {id : 2, name : "Alice", savedby : "IronMan"},
+//     {id : 3, name : "Roger", savedby : "CaptainAmerica"},
+//     {id : 4, name : "Adam", savedby : "IronMan"},
+//     {id : 5, name : "Alex", savedby : "SpiderMan"}
+// ];
+
+// console.log(global.persons);
 
 // let fs = require("fs"),
 

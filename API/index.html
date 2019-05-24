@@ -15,7 +15,6 @@
 </head>
 <body>
     <h1>This is Index HTML Response</h1>
-
     <h4>
         Please Type Name and Password
     </h4>    
@@ -57,7 +56,8 @@
 </body>
 <script>
     $(document).ready(function(){
-        var userName,password, updateuserid;
+        var userName,password, updateuserid;       
+
         $("#submit").click(function(){
           userName=$("#user").val();
           password=$("#password").val();          
@@ -82,14 +82,14 @@
         });
     
         $("#update").click(function(){
-          userName=$("#updateuser").val();;
+          userName=$("#updateuser").val();
           password=$("#updatepassword").val();          
           $.ajax({
               url:"http://localhost:9090/api/updatestudent",//path to api
               type:"put",   
               contentType:"application/json",
               data :JSON.stringify({   
-                    Name: userName,
+                    //Name: userName,
                     Pass: password,
                     School: "OXFORD",
                     ID:updateuserid
