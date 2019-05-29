@@ -1,7 +1,10 @@
 import React, {Component} from "react"; //react library
 import {render} from "react-dom";//Module import/export
-import StudentList, {StudentList2 as Person} from "./Components/StudentList";
+import StudentList from "./Components/StudentList";
+import PersonList from "./Components/PersonList";
+import Header from "./Components/HeaderComponent";
 //default (import/export)//normal (import/export)//First react application
+import{BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 //Jquery id class
 
@@ -25,14 +28,19 @@ class RootApp extends Component{ //virtual dom
 
    render(){ //JSX Code (Javascript as xml structure) //diff
        return(
+        <Router>
            <div>
                {"This is a parent Component"}
+               <Header/>
                
-               <StudentList/>
-
-               {"This is a normal student Component not the default"}
-               <Person/>
+                    <Switch>
+                        <Route path="/Student" exact component={StudentList}/>
+                        <Route path="/Person" component={PersonList}/>
+                        <Route path="*" component={StudentList}/>
+                    </Switch>
+                
            </div>
+        </Router>
        )
    }
 }
