@@ -1,26 +1,29 @@
 import React from "react";
-
-export default class StudentList extends React.Component {
+import {StudentComponent as ChildComponent} from "./StudentComponent";
+//stateful component
+export default class StudentList extends React.Component { //ParentComponent
     constructor(props){
         super();
-        this.studentList = [];
-        this.myClass = "mycssClass";
-        for (let index = 1; index <= 5; index++) {            
-            this.studentList.push({
-                rollCall: index + (index-1),
-                name:"Student "+index,
-                key:index
-            })
-        }
+        this.state ={//private object property of a component it can be mutated
+            myName : "Master Jerry",
+            myClass : "mycssClass",
+            studentList : []
+       }     
+       for (let index = 1; index <= 5; index++) {
+           this.state.studentList.push({
+               id: index + (index-1),
+               name:"Student"+index
+           })
+       }
     }
 
     render(){//JSX: 
         return(
             <div>
                 {
-                    this.studentList.map((student, index) => (
-                        <a href="/google.co.in" className={"row col-md-6 pull-right "+ (student.rollCall >= 5 ? 
-                            "mycssClass2 " : this.myClass) +" "+index}>{student.rollCall} : Hello, {student.name}!</a>
+                    this.state.studentList.map((student, index) => (
+                        <ChildComponent myid={student.id} name={student.name} 
+                        cssClass={index > 2 ? "mycssClass2": this.state.myClass}/>
                     ))
                 }
             </div>

@@ -9,35 +9,26 @@ import{BrowserRouter as Router, Route, Switch} from "react-router-dom";
 //Jquery id class
 
 //The very first component or root component
-class RootApp extends Component{ //virtual dom
+class HomeComponent extends Component{ //virtual dom //stateful component
    //The way we do in java class we will do here
    constructor(props){
-       super();
-       this.myName = "Master Jerry";
-       this.myClass = "mycssClass";
-
-       this.studentList = [];
-
-       for (let index = 1; index <= 5; index++) {
-           this.studentList.push({
-               rollCall: index + (index-1),
-               name:"Student"+index
-           })
-       }
+       super();       
    }
 
    render(){ //JSX Code (Javascript as xml structure) //diff
        return(
         <Router>
            <div>
-               {"This is a parent Component"}
-               <Header/>
-               
-                    <Switch>
-                        <Route path="/Student" exact component={StudentList}/>
-                        <Route path="/Person" component={PersonList}/>
-                        <Route path="*" component={StudentList}/>
-                    </Switch>
+               <h1>{"Home Page"}</h1>
+               <Header name={"Saranya"}>
+                   <h2 className={"Row"}>{"This is the first header"}</h2>
+                   <p>{"This is header a very basic header"}</p>
+               </Header>
+                <Switch>
+                    <Route path="/Student" exact component={StudentList}/>
+                    <Route path="/Person" component={PersonList}/>
+                    <Route path="*" component={PersonList}/>
+                </Switch>
                 
            </div>
         </Router>
@@ -45,4 +36,4 @@ class RootApp extends Component{ //virtual dom
    }
 }
 
-render(<RootApp/>, document.getElementById("root"));
+render(<HomeComponent/>, document.getElementById("root"));

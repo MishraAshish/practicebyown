@@ -1,5 +1,5 @@
 import React from "react";
-
+//stateful component
 export default class PersonList extends React.Component {
     constructor(props){
         super();
