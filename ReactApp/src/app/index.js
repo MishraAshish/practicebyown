@@ -2,12 +2,13 @@ import React, {Component} from "react"; //react library
 import {render} from "react-dom";//Module import/export
 import StudentList from "./Components/StudentList";
 import PersonList from "./Components/PersonList";
-import Header from "./Components/HeaderComponent";
+import Header, {Footer} from "./Components/HeaderComponent";
+import DefaultComponent from "./Components/DefaultComponent";
 //default (import/export)//normal (import/export)//First react application
 import{BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 //Jquery id class
-
+//--history-api-fallback
 //The very first component or root component
 class HomeComponent extends Component{ //virtual dom //stateful component
    //The way we do in java class we will do here
@@ -27,9 +28,12 @@ class HomeComponent extends Component{ //virtual dom //stateful component
                 <Switch>
                     <Route path="/Student" exact component={StudentList}/>
                     <Route path="/Person" component={PersonList}/>
-                    <Route path="*" component={PersonList}/>
+                    <Route path="*" component={DefaultComponent}/>
                 </Switch>
-                
+                <Footer>
+                    <h2>{"Test"}</h2>                    
+                   <h2 className={"Row"}>{"This is footer a very basic footer"}</h2>
+               </Footer>
            </div>
         </Router>
        )

@@ -35,6 +35,9 @@ let webpackConfig = {
             }
         ]
     },// Generate source map files
+    // devServer: {
+    //     historyApiFallback: true,
+    //   },
 	devtool: "source-map"
 }
 

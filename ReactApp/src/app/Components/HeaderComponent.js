@@ -14,3 +14,13 @@ const Header = (props) => {
     )
 }
 export default Header;
+
+export const Footer = (props) => {
+    var props = props; //immutable    
+    return(
+        <div>
+            {props.children[0]}
+            {props.children[1]}            
+        </div>
+    )
+}
