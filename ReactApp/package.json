@@ -6,7 +6,7 @@
   "scripts": {
     "test": "not now",
     "start": "npm run build",
-    "build": "webpack -d && copy src\\index.html dist\\index.html && webpack-dev-server --port 3030 --content-base src/ --hot --history-api-fallback",
+    "build": "webpack -p && copy src\\index.html dist\\index.html && webpack-dev-server --port 3030 --content-base src/ --hot --history-api-fallback",
     "build:prod": "webpack -p && cp src/index.html dist/index.html"
   },
   "repository": {

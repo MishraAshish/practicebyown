@@ -34,11 +34,11 @@ let webpackConfig = {
                 }
             }
         ]
-    },// Generate source map files
+    }//,// Generate source map files
     // devServer: {
     //     historyApiFallback: true,
     //   },
-	devtool: "source-map"
+	//devtool: "source-map"
 }
 
 module.exports = webpackConfig;

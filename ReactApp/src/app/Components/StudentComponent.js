@@ -10,12 +10,26 @@ export class StudentComponent extends React.Component {
         }
     }
 
+    changeMyName = (newName) => {
+        console.log("new Name", newName);          
+        //this.state.name = newName;
+        //console.log("new Name", this.state.name);
+        this.setState({
+            name: newName
+        })
+    }
+
     render(){
+        console.log("In Render Method ", this.state.name == "MyNewName" ? "Re-Rendered":"Rendered");
         return(
             <div>
                 {"Hi! this is "}
                 <a href={"wwww.google.com"} className={this.state.cssClass}>{this.state.name}</a> 
                 {"and my identity number is : "} <b>{this.state.myid}</b>
+
+                <div className={"row"}>
+                    <input type="button" onClick={() => this.changeMyName("MyNewName")} value={"Change My Name"}/>
+                </div>
             </div>
         )
     }

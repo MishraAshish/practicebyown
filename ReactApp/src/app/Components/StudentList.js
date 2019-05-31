@@ -9,7 +9,7 @@ export default class StudentList extends React.Component { //ParentComponent
             myClass : "mycssClass",
             studentList : []
        }     
-       for (let index = 1; index <= 5; index++) {
+       for (let index = 1; index <= 1; index++) {
            this.state.studentList.push({
                id: index + (index-1),
                name:"Student"+index
