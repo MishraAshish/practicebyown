@@ -8,7 +8,7 @@ export class StudentComponent extends React.Component {
             name:props.name,
             cssClass:props.cssClass
         }
-    }
+    }    
 
     changeMyName = (newName) => {
         console.log("new Name", newName);          
@@ -20,9 +20,9 @@ export class StudentComponent extends React.Component {
     }
 
     render(){
-        console.log("In Render Method ", this.state.name == "MyNewName" ? "Re-Rendered":"Rendered");
+        console.log("In Child Render Method ", this.state.name == "MyNewName" ? "Re-Rendered":"Rendered");
         return(
-            <div>
+            <div className={"borderClass"}>
                 {"Hi! this is "}
                 <a href={"wwww.google.com"} className={this.state.cssClass}>{this.state.name}</a> 
                 {"and my identity number is : "} <b>{this.state.myid}</b>

@@ -8,7 +8,7 @@ export default class StudentList extends React.Component { //ParentComponent
             myName : "Master Jerry",
             myClass : "mycssClass",
             studentList : [],
-            changedNameFromChild: "NoChangeName"
+            changedNameFromChild: "Bikram"
        }     
        for (let index = 1; index <= 1; index++) {
            this.state.studentList.push({
@@ -16,12 +16,16 @@ export default class StudentList extends React.Component { //ParentComponent
                name:"Student"+index
            })
        }
-    }
+    }    
 
     callBackMethodToGetData = (dataFromChild) =>{        
         //alert("This is the data from child : " + dataFromChild);
         console.log("Change value from child ", dataFromChild);
-        //this.state.changedNameFromChild = dataFromChild;
+
+        //this.state.changedNameFromChild = dataFromChild; //initial time developers
+
+        //this is a call back to update your state so that it gets re-rendered,
+        //it updates in a batch so that to avoid duplicate re-rendering
         this.setState({
             changedNameFromChild:dataFromChild
         });
@@ -30,6 +34,8 @@ export default class StudentList extends React.Component { //ParentComponent
     }
 
     render(){//JSX: 
+
+        console.log("Parent Rendering Component!");
         return(
             <div>
                 {
@@ -41,7 +47,7 @@ export default class StudentList extends React.Component { //ParentComponent
                     ))
                 }
                 <div>
-                    <b>{"This is the name which will change "+this.state.changedNameFromChild}</b>
+                    <b>{"This is the name which will change : "+this.state.changedNameFromChild}</b>
                 </div>
             </div>
         )
