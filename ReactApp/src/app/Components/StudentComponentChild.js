@@ -2,7 +2,7 @@ import React from "react";
 //stateful component
 export class StudentComponent extends React.Component {
     constructor(props){
-        super();
+        super(props);//syncing the props across all components
         this.state ={
             myid:props.myid,
             name:props.name,
@@ -29,6 +29,10 @@ export class StudentComponent extends React.Component {
 
                 <div className={"row"}>
                     <input type="button" onClick={() => this.changeMyName("MyNewName")} value={"Change My Name"}/>
+                </div>
+
+                <div className={"row"}>
+                    <input type="button" onClick={() => this.props.returnToChild(this.state.name)} value={"Send My Name Back"}/>
                 </div>
             </div>
         )

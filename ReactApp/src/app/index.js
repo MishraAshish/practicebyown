@@ -1,6 +1,6 @@
 import React, {Component} from "react"; //react library
 import {render} from "react-dom";//Module import/export
-import StudentList from "./Components/StudentList";
+import StudentList from "./Components/StudentListParent";
 import PersonList from "./Components/PersonList";
 import Header, {Footer} from "./Components/HeaderComponent";
 import DefaultComponent from "./Components/DefaultComponent";
@@ -24,7 +24,7 @@ class HomeComponent extends Component{ //virtual dom //stateful component
                <Header name={"Saranya"}>
                    <h2 className={"Row"}>{"This is the first header"}</h2>
                    <p>{"This is header a very basic header"}</p>
-               </Header>
+               </Header>               
                 <Switch>
                     <Route path="/Student" exact component={StudentList}/>
                     <Route path="/Person" component={PersonList}/>

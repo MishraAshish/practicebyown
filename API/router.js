@@ -158,7 +158,7 @@ router.get('*', (req, res) => {
     //console.log("Request Object ", req);
     res.send("Hello World");//json data
     
-    //res.sendfile('./index.html');    
+    res.sendfile('./index.html');    
 });
 
 router.next = function(data) {
