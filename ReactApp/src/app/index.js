@@ -4,6 +4,7 @@ import StudentList from "./Components/StudentListParent";
 import PersonList from "./Components/PersonList";
 import Header, {Footer} from "./Components/HeaderComponent";
 import DefaultComponent from "./Components/DefaultComponent";
+import LifeCycleMethods from "./Components/LifeCycleMethodComponent";
 //default (import/export)//normal (import/export)//First react application
 import{BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
@@ -28,6 +29,7 @@ class HomeComponent extends Component{ //virtual dom //stateful component
                 <Switch>
                     <Route path="/Student" exact component={StudentList}/>
                     <Route path="/Person" component={PersonList}/>
+                    <Route path="/lifecycle" component={LifeCycleMethods}/>
                     <Route path="*" component={DefaultComponent}/>
                 </Switch>
                 <Footer>

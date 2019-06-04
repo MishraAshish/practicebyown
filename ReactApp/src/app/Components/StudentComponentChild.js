@@ -19,6 +19,24 @@ export class StudentComponent extends React.Component {
         })
     }
 
+    //Update lifecycle methods
+    componentWillReceiveProps(nextProps){
+        console.log("Component Will ReceiveProps - Ready To Update Through Props", nextProps);
+    }
+
+    shouldComponentUpdate(nextProps, nextState){ //The most important LCM
+        console.log("should Component Update - Ready To Update Through State", nextProps ,nextState);
+        return true;
+    }
+
+    componentWillUpdate(nextProps, nextState){
+        console.log("Component Will Update - New Values", nextProps ,nextState);
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        console.log("Component Did Update - Old Values", prevProps ,prevState);
+    }
+
     render(){
         console.log("In Child Render Method ", this.state.name == "MyNewName" ? "Re-Rendered":"Rendered");
         return(

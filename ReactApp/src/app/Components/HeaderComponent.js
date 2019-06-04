@@ -10,6 +10,7 @@ const Header = (props) => {
             {props.children[1]}
             <NavLink to="/Student" activeStyle={{color:"red"}} title={"USer File"}> {"StudentTest"} </NavLink>
             <NavLink to="/Person" activeClassName="red">{"Person"} </NavLink>
+            <NavLink to="/lifecycle" activeClassName="red">{"Lifecycle"} </NavLink>
         </div>
     )
 }
