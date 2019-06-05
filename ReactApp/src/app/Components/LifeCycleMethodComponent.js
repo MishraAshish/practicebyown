@@ -11,6 +11,9 @@ export default class LifeCycleMethods extends React.Component{
             incrementedValue:0,
             name:"Jerry"
         }
+
+        this.textInput = React.createRef();
+
     }
 
     componentWillMount(){
@@ -54,7 +57,8 @@ export default class LifeCycleMethods extends React.Component{
 
     counterOnChange = (event)=>{
         console.log("Change has been called", event.target.value);
-        //event.target.value = event.target.value;
+        event.target.value = event.target.value;
+
         //this.state.counter = evt.target.value;
         //this.forceUpdate();
 
@@ -75,6 +79,13 @@ export default class LifeCycleMethods extends React.Component{
             incrementedValue:parseInt(this.state.counter)+ parseInt(val),
             name:name
         });
+    }
+
+    onRefChange = ()=>{
+        alert(this.textInput.current.value);
+        this.textInput.current.focus();
+        this.textInput.current.value = "Ashish";
+        this.forceUpdate();
     }
 
     render(){
@@ -99,7 +110,10 @@ export default class LifeCycleMethods extends React.Component{
                     <br/>
                     {"Updated Name : "}<b>{this.state.name}</b>
                 </div>
-            
+                <div className={"row col-md-10"}>
+                    <input type="text" ref={this.textInput} value={"Ref Keyword"}/>
+                    <input type="button" value="Focus the text input" onClick={this.onRefChange} />
+                </div>
             </div>
         )        
     }
