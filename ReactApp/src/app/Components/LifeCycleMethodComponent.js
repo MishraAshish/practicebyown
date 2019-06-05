@@ -6,7 +6,10 @@ export default class LifeCycleMethods extends React.Component{
         super(props);
         //initialize state
         this.state = {
-            counter:1
+            counter:1,
+            counter2:5,
+            incrementedValue:0,
+            name:"Jerry"
         }
     }
 
@@ -56,16 +59,47 @@ export default class LifeCycleMethods extends React.Component{
         //this.forceUpdate();
 
         this.setState({
-            counter:evt.target.value
+            counter:event.target.value
         })
+    }
+
+    counter2OnChange = (event)=>{        
+        this.setState({
+            counter2: event.target.value
+        });
+    }
+
+    incrementFunction = (val, name) => {
+        //debugger;
+        this.setState({
+            incrementedValue:parseInt(this.state.counter)+ parseInt(val),
+            name:name
+        });
     }
 
     render(){
         console.log("We are in render method - View is Rendering");
+        const pStyle = {
+            fontSize: '15px',
+            textAlign: 'center',
+            'background-color':'red'
+          };
         return(
-            <div className={"row"}>
-                <input type="text" className={"form-control"} value={this.state.counter} onChange={this.counterOnChange}/>
+            <div className={"row col-md-10"}>
+                <input type="text" style={{'background-color':'yellow'}} className={"form-control"} value={this.state.counter} onChange={this.counterOnChange}/>
                 {"Counter Square "}<b>{!isNaN(this.state.counter) ? parseInt(this.state.counter)*parseInt(this.state.counter):0}</b>
+                <hr/>
+                <div className={"col-md-10"}>
+                    <input type="text" className={"form-control button-border"} style={pStyle} value={this.state.counter2} onChange={this.counter2OnChange}/>
+                    <hr/>
+                    <button className={"btn btn-default"} onClick={() => this.incrementFunction(this.state.counter2, "Prassanna")}>{"Incrementer"}</button>
+                    <hr/>
+                    {"Counter Increment : "}<b>{this.state.incrementedValue}</b>
+                    <hr/>
+                    <br/>
+                    {"Updated Name : "}<b>{this.state.name}</b>
+                </div>
+            
             </div>
         )        
     }

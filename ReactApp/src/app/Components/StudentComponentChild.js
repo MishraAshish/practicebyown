@@ -15,7 +15,7 @@ export class StudentComponent extends React.Component {
         //this.state.name = newName;
         //console.log("new Name", this.state.name);
         this.setState({
-            name: newName
+            name: newName 
         })
     }
 
