@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 //stateful component
 export class StudentComponent extends React.Component {
     constructor(props){
@@ -45,14 +46,21 @@ export class StudentComponent extends React.Component {
                 <a href={"wwww.google.com"} className={this.state.cssClass}>{this.state.name}</a> 
                 {"and my identity number is : "} <b>{this.state.myid}</b>
 
-                <div className={"row"}>
-                    <input type="button" onClick={() => this.changeMyName("MyNewName")} value={"Change My Name"}/>
+                <div className={"row form-control"}>
+                    <input type="button" className={"btn btn-default"} onClick={() => this.changeMyName("MyNewName")} value={"Change My Name"}/>
                 </div>
 
                 <div className={"row"}>
-                    <input type="button" onClick={() => this.props.returnToChild(this.state.name)} value={"Send My Name Back"}/>
+                    <input type="button" className={"btn btn-default"} onClick={() => this.props.returnToChild(this.state.name)} value={"Send My Name Back"}/>
                 </div>
             </div>
         )
     }
+}
+
+StudentComponent.propTypes = {
+    name: PropTypes.string.isRequired
+}
+StudentComponent.defaultProps = {
+    name: "Saranya"
 }
