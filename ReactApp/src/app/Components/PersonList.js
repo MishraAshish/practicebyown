@@ -1,6 +1,7 @@
 import React from "react";
+import {connect} from "react-redux";
 //stateful component
-export default class PersonList extends React.Component {
+class PersonList extends React.Component {
     constructor(props){
         super();
         this.studentList = [];
@@ -17,6 +18,7 @@ export default class PersonList extends React.Component {
     render(){
         return(
             <div>
+                <div>{"Name Is :"}<b>{this.props.user.name}</b></div>
                 {
                 this.studentList.map((student, index) => (
                     <a href="/google.co.in" className={"row col-md-6 pull-right "+ (student.rollCall >= 102 ? 
@@ -27,3 +29,15 @@ export default class PersonList extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state)=>{
+    return {
+        user: state.user
+    }
+}
+
+const mapDispatchToProps = (dispatch)=>{
+    return {}    
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PersonList);

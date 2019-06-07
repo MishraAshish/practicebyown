@@ -40,7 +40,7 @@ export default class StudentList extends React.Component { //ParentComponent
             <div>
                 {
                     this.state.studentList.map((student, index) => (
-                        <ChildComponent myid={student.id} name={student.name} 
+                        <ChildComponent myid={student.id}  
                         cssClass={index > 2 ? "mycssClass2": this.state.myClass}
                         returnToChild={this.callBackMethodToGetData}
                         />

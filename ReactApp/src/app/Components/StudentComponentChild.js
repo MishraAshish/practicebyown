@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+//subscribe redux -can access, read and write to global data object
 //stateful component
 export class StudentComponent extends React.Component {
     constructor(props){
@@ -61,6 +62,7 @@ export class StudentComponent extends React.Component {
 StudentComponent.propTypes = {
     name: PropTypes.string.isRequired
 }
+
 StudentComponent.defaultProps = {
-    name: "Saranya"
+    name: "Bikram"
 }

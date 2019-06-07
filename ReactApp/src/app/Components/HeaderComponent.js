@@ -4,13 +4,11 @@ import React from "react";
 const Header = (props) => {
     var props = props; //immutable    
     return(
-        <div>
-            <h4>{props.name}</h4>
-            {props.children[0]}
-            {props.children[1]}
-            <NavLink to="/Student" activeStyle={{color:"red"}} title={"USer File"}> {"StudentTest"} </NavLink>
-            <NavLink to="/Person" activeClassName="red">{"Person"} </NavLink>
-            <NavLink to="/lifecycle" activeClassName="red">{"Lifecycle"} </NavLink>
+        <div>            
+            <NavLink to="/Student" activeStyle={{color:"red"}} title={"USer File"}> {"StudentTest"} </NavLink> |
+            <NavLink to="/Person" activeClassName="red">{"Person"} </NavLink> |
+            <NavLink to="/lifecycle" activeClassName="red">{"Lifecycle"} </NavLink> |
+            <NavLink to="/reduxcomp" activeClassName="red">{"React Redux"} </NavLink> |
         </div>
     )
 }
