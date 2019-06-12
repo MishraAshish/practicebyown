@@ -1,7 +1,7 @@
 import {createStore, combineReducers, applyMiddleware} from "redux";
 import promise from "redux-promise-middleware";
 
-//import user from "./Reducers/UserReducer";
+import cart from "./app/CartApp/State/CartReducer";
 //import acctreducer from "./Reducers/AccountReducer";
 
 const myLogger = () => (next) => (action) => {    
@@ -11,7 +11,7 @@ const myLogger = () => (next) => (action) => {
 
 export default createStore(
     combineReducers({
-        //user
+        items:cart
         //,acctreducer
     }),
     {},
