@@ -6,6 +6,9 @@ import {connect} from "react-redux";
 class ReduxComponent extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
+            //update in same component
+        }
     }
 
     render(){
@@ -15,7 +18,7 @@ class ReduxComponent extends React.Component{
                     <div className={"col-md-10"}>
                         <div>{"Name Is :"}<b>{this.props.user.name}</b>
                             <hr/>
-                            <button className={"btn btn-default"} onClick={() => {this.props.set_Name("Andrew")}} >{"Set Name"}</button>
+                            <button className={"btn btn-default"} onClick={() => {this.props.set_Name("Ashish")}} >{"Set Name"}</button>
                         </div>
 
                         <div>{"Age Is :"}<b>{this.props.user.age}</b>

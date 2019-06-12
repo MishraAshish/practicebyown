@@ -18,8 +18,15 @@ router.post('/api/createstudent', (req, res) =>{
     studentObjForMongo.save((err, data, next)=>{        
         if (err) {
             res.send("Error Occurred"+ err);
-        }        
-        res.send("Student Saved Successfully", data, studentObjForMongo);
+        } 
+        studentModel.find((err, students) => {
+            if (err){
+                console.log("got an error!");
+                res.send(err);
+            }
+            res.json(students);
+        });       
+        //res.send("Student Saved Successfully", data, studentObjForMongo);
     });
 });
 

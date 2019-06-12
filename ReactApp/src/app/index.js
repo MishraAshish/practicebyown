@@ -7,9 +7,10 @@ import DefaultComponent from "./Components/DefaultComponent";
 import LifeCycleMethods from "./Components/LifeCycleMethodComponent";
 import ReduxComponent from "./Components/ReduxComponent";
 import{BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Loadable from "react-loadable";
 import {Provider} from "react-redux";
 import store from "./store";
-
+import "./App.css";
 
 //Jquery id class
 //--history-api-fallback

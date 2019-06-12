@@ -12,6 +12,12 @@ const userReducer = (state = initialState, action ) =>{
                 ...state,//checks all the states
                 name: action.payload //update the name only and keep age as it is 
             };
+            break;
+        case "SET_NAME_FULFILLED":
+            state = {
+                ...state,//checks all the states
+                name: action.payload //update the name only and keep age as it is 
+            };
             break;    
         case "SET_AGE":
             state = {

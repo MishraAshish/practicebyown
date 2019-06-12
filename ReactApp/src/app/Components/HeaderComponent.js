@@ -5,10 +5,10 @@ const Header = (props) => {
     var props = props; //immutable    
     return(
         <div>            
-            <NavLink to="/Student" activeStyle={{color:"red"}} title={"USer File"}> {"StudentTest"} </NavLink> |
-            <NavLink to="/Person" activeClassName="red">{"Person"} </NavLink> |
-            <NavLink to="/lifecycle" activeClassName="red">{"Lifecycle"} </NavLink> |
-            <NavLink to="/reduxcomp" activeClassName="red">{"React Redux"} </NavLink> |
+            <NavLink to="/Student" className="button" activeClassName="success" title={"USer File"}> {"StudentTest"} </NavLink> |
+            <NavLink to="/Person" className="button" activeClassName="success">{"Person"} </NavLink> |
+            <NavLink to="/lifecycle" className="button" activeClassName="success">{"Lifecycle"} </NavLink> |
+            <NavLink to="/reduxcomp" className="button" activeClassName="success">{"React Redux"} </NavLink> |
         </div>
     )
 }
