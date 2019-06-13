@@ -1,8 +1,7 @@
 
 import {connect} from 'react-redux';
-
-import Cart from '../Components/CartComponent';
-
+import {bindActionCreators} from "redux";
+import Cart from '../Components/CartComponent';//F12
 import {addItem, empty} from '../state/actions';
 
 let mapStateToProps = (state) => {
@@ -18,17 +17,17 @@ let mapDispatchToProps = (dispatch) => {
             let id = Math.ceil(Math.random() * 10000);
             let item = {
                 id,
-                name: `Product ${id}`,
+                name: `Product ${id} Name`,
                 price: Math.ceil(Math.random() * 100),
                 qty: 1
             }
             const action = addItem(item);
             dispatch(action);
         },
-        //empty: bindActionCreators(empty, dispatch)
-        empty: () =>{
-            dispatch(empty)
-        }
+        empty: bindActionCreators(empty, dispatch)
+        // empty: () =>{
+        //     dispatch(empty)
+        // }
     }
 }
 

@@ -1,11 +1,12 @@
 import React from "react";
+import CartList from "../Container/CartListContainer"; //Go Back => Alt + left arrow , Go Forward => Alt + Right Arrow
 
 export default function Cart(props) {
     console.log("Cart Component render ", props);
     return (
         <div>
             <h2>Redux Cart</h2>
-            <p>Cart Length {props.cartLength}</p>
+            <p>Cart Length {props.cartLength}</p>  
             
             <button onClick={props.addItem} >
                 Add Item
@@ -15,8 +16,8 @@ export default function Cart(props) {
                 Empty
             </button>
 
-            {/* <CartList />
-            <CartSummary /> */}
+            <CartList />
+            {/*<CartSummary /> */}
         </div>
     )
 }
