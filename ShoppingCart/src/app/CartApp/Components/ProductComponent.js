@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductInfo from "./ProductInfoComponent";
 
 export default class ProductList extends React.Component {
 
@@ -15,7 +16,8 @@ export default class ProductList extends React.Component {
                 <ul>
                 {
                     products.map (product => (
-                        <li key={product.id}> {product.name}</li>
+                        // <li key={product.id}> {product.name}</li>
+                        <ProductInfo item={product}/>
                     ))
                 }
                 </ul>
