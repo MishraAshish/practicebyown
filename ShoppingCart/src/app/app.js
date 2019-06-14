@@ -7,6 +7,7 @@ import Footer from "./CommonComponents/FooterComponent";
 import Header from "./CommonComponents/HeaderComponent";
 import NotFound from "./CommonComponents/PageNotFound";
 import Cart from "./CartApp/Container/CartContainer";
+import ProductList from "./CartApp/Container/ProductContainer";
 
 export default class App extends React.Component {
     constructor() {
@@ -25,7 +26,7 @@ export default class App extends React.Component {
                 <Switch>
                     <Route path="/" exact component={Home} />
                     <Route path="/cart" component={Cart} />
-                    {/* <Route path="/products" component={ProductList} /> */}
+                    <Route path="/products" component={ProductList} />
                     <Route path="/about" component={About} />
                     <Route path="*" component={NotFound} />
                 </Switch>

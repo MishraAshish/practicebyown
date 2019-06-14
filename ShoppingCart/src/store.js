@@ -1,8 +1,9 @@
 import {createStore, combineReducers, applyMiddleware} from "redux";
 import promise from "redux-promise-middleware";
+import thunk from 'redux-thunk';
 
 import cart from "./app/CartApp/State/CartReducer";
-//import acctreducer from "./Reducers/AccountReducer";
+import productReducer from "./app/CartApp/State/ProductReducer";
 
 const myLogger = () => (next) => (action) => {    
     console.log("Logged Action", action);
@@ -11,9 +12,9 @@ const myLogger = () => (next) => (action) => {
 
 export default createStore(
     combineReducers({
-        items:cart
-        //,acctreducer
+        items:cart,
+        product:productReducer
     }),
     {},
-    applyMiddleware(myLogger,promise)
+    applyMiddleware(myLogger,promise,thunk)
 )

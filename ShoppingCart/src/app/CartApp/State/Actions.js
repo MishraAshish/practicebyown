@@ -25,3 +25,39 @@ export const updateItem = (id, qty) => ({
         qty: parseInt(qty)
     }
 })
+
+export const INIT_PRODUCTS = (products) => ({
+    type: "INIT_PRODUCTS",
+    payload: {
+        products
+    }
+});
+
+export const loading = (loading) => ({
+    type: "LOADING",
+    payload: {
+        loading
+    }
+});
+
+
+export const fetchProducts = () => {
+    console.log('entering fetch products');
+
+    // thunk, returns function as an action
+    return function(dispatch, getState) {
+        // here we go with ajax call
+        // thunk shall call
+        console.log("called by thunk");
+        dispatch(loading(true));
+
+        window.fetch("http://localhost:9090/api/products")
+        .then (response => response.json())
+        .then (products => {
+            console.log("Got products ", products);
+            let action = INIT_PRODUCTS(products);
+            dispatch(action);
+            dispatch(loading(false));
+        })
+    }
+}

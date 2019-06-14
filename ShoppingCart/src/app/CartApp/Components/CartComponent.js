@@ -1,5 +1,7 @@
 import React from "react";
 import CartList from "../Container/CartListContainer"; //Go Back => Alt + left arrow , Go Forward => Alt + Right Arrow
+import CartSummary from "../Container/CartSummaryContainer";
+
 
 export default function Cart(props) {
     console.log("Cart Component render ", props);
@@ -17,7 +19,7 @@ export default function Cart(props) {
             </button>
 
             <CartList />
-            {/*<CartSummary /> */}
+            <CartSummary />
         </div>
     )
 }
