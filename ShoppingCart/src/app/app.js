@@ -1,13 +1,71 @@
 import React from "react";
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import "../App.css";
-import Home from "./CommonComponents/HomeComponent";
-import About from "./CommonComponents/AboutComponent";
-import Footer from "./CommonComponents/FooterComponent";
-import Header from "./CommonComponents/HeaderComponent";
-import NotFound from "./CommonComponents/PageNotFound";
-import Cart from "./CartApp/Container/CartContainer";
-import ProductList from "./CartApp/Container/ProductContainer";
+//import Home from "./CommonComponents/HomeComponent";
+//import About from "./CommonComponents/AboutComponent";
+//import Footer from "./CommonComponents/FooterComponent";
+//import Header from "./CommonComponents/HeaderComponent";
+//import NotFound from "./CommonComponents/PageNotFound";
+//import Cart from "./CartApp/Container/CartContainer";
+//import ProductList from "./CartApp/Container/ProductContainer";
+import Loadable from "react-loadable"; //allows lazy loading
+
+// // functional component, used as placeholder
+// //when lazy loaded modules delayed
+function Loading() {
+    return (
+        <div>
+            Loading ...
+        </div>
+    )
+}
+const About = Loadable({
+    // import - specification
+    // webpack, create a seperate bundle
+    loader: () => import('./CommonComponents/AboutComponent'),
+    loading: Loading,
+  });
+
+  const Home = Loadable({
+    // import - specification
+    // webpack, create a seperate bundle
+    loader: () => import('./CommonComponents/HomeComponent'),
+    loading: Loading,
+  });
+
+const Footer = Loadable({
+    // import - specification
+    // webpack, create a seperate bundle
+    loader: () => import('./CommonComponents/FooterComponent'),
+    loading: Loading,
+  });
+
+  const Header = Loadable({
+    // import - specification
+    // webpack, create a seperate bundle
+    loader: () => import('./CommonComponents/HeaderComponent'),
+    loading: Loading,
+  });
+
+  const NotFound = Loadable({
+    // import - specification
+    // webpack, create a seperate bundle
+    loader: () => import('./CommonComponents/PageNotFound'),
+    loading: Loading,
+  });
+
+const ProductList = Loadable({
+    // import - specification
+    // webpack, create a seperate bundle
+    loader: () => import('./CartApp/Container/ProductContainer'),
+    loading: Loading,
+  });
+
+
+const Cart = Loadable({
+    // import - specification
+    loader: () => import('./CartApp/Container/CartContainer'),
+    loading: Loading,
+  });
 
 export default class App extends React.Component {
     constructor() {
