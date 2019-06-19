@@ -9,6 +9,7 @@ export default function Header(props){
             <NavLink to="/cart" className="button" activeClassName="success" >Cart  </NavLink>
             <NavLink to="/products" className="button" activeClassName="success">Product  </NavLink>
             <NavLink to="/checkout" className="button" activeClassName="success">CheckOut  </NavLink>            
+            <NavLink to="/address" className="button" activeClassName="success">Address  </NavLink>
             <NavLink to="/about" className="button" activeClassName="success">About  </NavLink>
             <hr/>
         </div>

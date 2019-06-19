@@ -1,6 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-//import Home from "./CommonComponents/HomeComponent";
+import Address from "./CartApp/Container/AddressContainer";
+import Checkout from "./CartApp/Container/CheckoutContainer";
 //import About from "./CommonComponents/AboutComponent";
 //import Footer from "./CommonComponents/FooterComponent";
 //import Header from "./CommonComponents/HeaderComponent";
@@ -82,10 +83,13 @@ export default class App extends React.Component {
             <div>
                 <Header appTitle={this.state.appTitle} />
                 <Switch>
+                  {/* user route.map(item=>{key,path}) */}
                     <Route path="/" exact component={Home} />
                     <Route path="/cart" component={Cart} />
                     <Route path="/products" component={ProductList} />
                     <Route path="/about" component={About} />
+                    <Route path="/checkout" component={Checkout} />
+                    <Route path="/address" component={Address} />
                     <Route path="*" component={NotFound} />
                 </Switch>
                 <Footer appTitle={this.state.appTitle} year={this.state.year}>

@@ -7,6 +7,13 @@ export const addItem = (item) =>   ({
     }
 })
 
+export const addUserAddress = (address) => ({    
+    type: ActionTypes.ADDUSER_ADDRESS,
+    payload: {
+        address
+    }
+})
+
 export const empty = () => ({
     type: ActionTypes.EMPTY_CART
 })
