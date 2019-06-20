@@ -11,8 +11,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        addUserAddress:() => {
-            dispatch(addUserAddress);
+        addUserAddress:(address) => {
+            dispatch(addUserAddress(address));
         }
     }
 }

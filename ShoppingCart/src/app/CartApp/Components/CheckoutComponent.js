@@ -6,18 +6,19 @@ export default class Checkout extends React.Component {
         super(props);        
     }  
 
-    render() {       
-        
+    render() {               
+        let addressPbj = this.props.address.address;
+        console.log("this.props.address", addressPbj);
         return (
             <div>
                 <div className="form col-md-8">
-                    <b>First Name : </b><p>{this.props.address.firstName}</p> 
+                    <p><b>First Name : </b>{addressPbj.firstName}</p> 
                     <hr/>
-                    <b>Last Name : </b><p>{this.props.address.lastName}</p> 
+                    <p><b>Last Name : </b>{addressPbj.lastName}</p> 
                     <hr/>
-                    <b>Street : </b><p>{this.props.address.street}</p> 
+                    <p><b>Street : </b>{addressPbj.street}</p> 
                     <hr/>
-                    <b>Cell Phone : </b><p>{this.props.address.cellPhone}</p> 
+                    <p><b>Cell Phone : </b>{addressPbj.cellPhone}</p> 
                     <hr/>
 
                     <b>Product Details</b>
@@ -27,8 +28,7 @@ export default class Checkout extends React.Component {
                         <th>Name</th>
                         <th>Price</th>
                         <th>Qty</th>
-                        <th>Total</th>
-                        <th>Remove</th>
+                        <th>Total</th>                        
                     </tr>
                 </thead>
                 <tbody>
@@ -36,6 +36,7 @@ export default class Checkout extends React.Component {
                     this.props.products.map (item => (
                         <CartItem item={item}
                                     key={item.id}
+                                    donotrender={true}
                         />
                     ))
                 }

@@ -9,9 +9,7 @@ export const addItem = (item) =>   ({
 
 export const addUserAddress = (address) => ({    
     type: ActionTypes.ADDUSER_ADDRESS,
-    payload: {
-        address
-    }
+    payload: {address}
 })
 
 export const empty = () => ({

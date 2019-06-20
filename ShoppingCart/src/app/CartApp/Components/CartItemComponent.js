@@ -35,7 +35,7 @@ export default class CartItem extends Component {
     }
 
     componentDidMount() {
-        this.inputElem.focus();
+        !this.props.donotrender ? this.inputElem.focus():"";
      }
      
     render() {
@@ -47,22 +47,25 @@ export default class CartItem extends Component {
                 <td>{item.price}
                    <p ref="discount"> </p>
                 </td>
-                <td>
+                {!this.props.donotrender ?<td>
                    <input value={this.state.qty} 
                           type="number"
                           onChange={this.onChangeText}
                           ref = {(elem) => this.inputElem = elem}
                    />   
-                </td>
+                </td> : 
+                <td>{item.qty}</td>}
                 <td> {item.price * item.qty} </td>
-                <td>
-                    <button onClick={() => this.props.actions.updateItem(item.id, this.state.qty)}>
-                        Update
-                    </button>
-                    <button onClick={() => this.props.actions.removeItem(item.id)}>
-                        Remove
-                    </button>
-                </td>
+                {!this.props.donotrender ?
+                    <td>
+                        <button onClick={() => this.props.actions.updateItem(item.id, this.state.qty)}>
+                            Update
+                        </button>
+                        <button onClick={() => this.props.actions.removeItem(item.id)}>
+                            Remove
+                        </button>
+                    </td> :""
+                }
             </tr>
         )
     }

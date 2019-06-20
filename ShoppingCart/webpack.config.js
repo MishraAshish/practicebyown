@@ -1,6 +1,7 @@
 let path = require("path"),
 DIST_DIR = path.resolve(__dirname,"dist"),
-SRC_DIR = path.resolve(__dirname,"src");
+SRC_DIR = path.resolve(__dirname,"src"),
+UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 
 let webpackConfig = {
@@ -9,7 +10,7 @@ let webpackConfig = {
     //out put
     output:{
         path: DIST_DIR + "/app",
-        filename: "bundle.js",
+        filename: "bundle.min.js",
         publicPath:"/app/"
     },    
     //loaders
@@ -32,11 +33,18 @@ let webpackConfig = {
                 use:['style-loader','css-loader']
             }
         ]
-    }//,// Generate source map files
+    },//,// Generate source map files
     // devServer: {
     //     historyApiFallback: true,
     //   },
-	//devtool: "source-map"
+    //devtool: "source-map"
+    optimization: {
+        minimizer: [
+          new UglifyJsPlugin({
+            test: /\.js(\?.*)?$/i,
+          }),
+        ],
+    }
 }
 
 module.exports = webpackConfig;
