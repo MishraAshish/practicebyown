@@ -1,3 +1,69 @@
+/* cascading style sheets */
+
+.stylemydiv{ /* class based style */
+  border: 1px solid red;
+}
+
+#stylemydiv{
+  border: 1px solid burlywood; 
+}
+.othersections{
+  height: 200px;  
+  border: 1px solid maroon;
+}
+.parentclass{
+  width: 16%;
+  float: left;
+}
+.verticalHeader {
+  border: 1px solid brown;  
+}
+.verticalHeader a {
+  line-height: 30px;
+  background-color: violet;
+  padding: 5px;  
+  float: left;
+  width: 95px;
+  border-bottom: 1px solid brown;
+  box-shadow: inset 5px 0 black;
+}
+.componentBody{
+  min-height: 235px;
+  padding-left: 20px;
+}
+.footerbox{
+  /* background: url(../src/someimage.jpg) no-repeat center center fixed; */
+  margin-top: 200px;
+  width: 100%;
+  border: 2px solid darkred;
+  height: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @charset "UTF-8";
 /**
  * 1. Set default font family to sans-serif.
@@ -689,6 +755,11 @@ tr:nth-child(even) {
   width: 8.33333%; }
 
 @media all and (min-width: 500px) {
+
+  .othersections{
+    height: 200px;  
+    background: #ff0;
+  }
   .one-500 > * {
     width: 100%; }
 
@@ -724,6 +795,13 @@ tr:nth-child(even) {
 
   .twelve-500 > * {
     width: 8.33333%; } }
+@media all and (max-width:500px){
+  .othersections{
+    height: 50px;  
+    background: slateblue;
+  }
+}
+  
 @media all and (min-width: 600px) {
   .one-600 > * {
     width: 100%; }

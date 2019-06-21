@@ -10,7 +10,7 @@ let webpackConfig = {
     //out put
     output:{
         path: DIST_DIR + "/app",
-        filename: "bundle.min.js",
+        filename: "bundle.js",
         publicPath:"/app/"
     },    
     //loaders
@@ -28,23 +28,39 @@ let webpackConfig = {
                 }
             },
             {
-                test:/\.css$/,
+                test:/\.(css|gif|png|jpg|svg)$/,
                 include:SRC_DIR,
                 use:['style-loader','css-loader']
-            }
+            },
+            {
+                include:SRC_DIR,
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                use: [
+                  'file-loader',
+                  {
+                    loader: 'image-webpack-loader',
+                    options: {
+                      bypassOnDebug: true, // webpack@1.x
+                      disable: true, // webpack@2.x and newer
+                    },
+                  },
+                ],
+              }
         ]
     },//,// Generate source map files
     // devServer: {
     //     historyApiFallback: true,
     //   },
     //devtool: "source-map"
-    optimization: {
-        minimizer: [
-          new UglifyJsPlugin({
-            test: /\.js(\?.*)?$/i,
-          }),
-        ],
-    }
+    // optimization: {
+    //     minimize: true,
+    //     minimizer: [
+    //       new UglifyJsPlugin({
+    //         include:SRC_DIR,
+    //         test: /\.js(\?.*)?$/i,
+    //       }),
+    //     ],
+    // }
 }
 
 module.exports = webpackConfig;

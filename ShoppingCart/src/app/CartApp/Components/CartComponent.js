@@ -6,7 +6,7 @@ import CartSummary from "../Container/CartSummaryContainer";
 export default function Cart(props) {
     console.log("Cart Component render ", props);
     return (
-        <div>
+        <div className="componentBody row">
             <h2>Redux Cart</h2>
             <p>Cart Length {props.cartLength}</p>  
             

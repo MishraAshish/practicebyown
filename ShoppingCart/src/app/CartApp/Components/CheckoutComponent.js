@@ -10,7 +10,7 @@ export default class Checkout extends React.Component {
         let addressPbj = this.props.address.address;
         console.log("this.props.address", addressPbj);
         return (
-            <div>
+            <div className="componentBody row">
                 <div className="form col-md-8">
                     <p><b>First Name : </b>{addressPbj.firstName}</p> 
                     <hr/>

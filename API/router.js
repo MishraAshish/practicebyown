@@ -808,9 +808,9 @@ router.get('*', (req, res) => {
     //console.log(typeof req.app != "undefined" ? req.app.locals.user : "App is not present");    
     //console.log("Response Object ", res);
     //console.log("Request Object ", req);
-    res.send("Hello World");//json data
     
-    res.sendfile('./index.html');    
+    res.sendfile('./explorecss.html');
+    //res.sendfile('./index.html');    
 });
 
 router.next = function(data) {

@@ -48,7 +48,7 @@ export default class Address extends React.Component {
     render() {       
 
         return (
-            <div>
+            <div className="componentBody row">
                 <div className="form col-md-8">
                     <input type="text" className="form-control col-md-6 fname" value={this.state.firstName} 
                           placeholder="First Name"

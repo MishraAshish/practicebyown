@@ -11,7 +11,7 @@ export default class ProductList extends React.Component {
         let products = this.props.products || [];
 
         return (
-            <div>
+            <div className="componentBody row">
                 <h2>Product List {this.props.loading ? "Loading " : " Loaded "}</h2>
                 <ul>
                 {
